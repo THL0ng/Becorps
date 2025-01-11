@@ -34,6 +34,8 @@ public class User_01_Regisgter_Login {
     public void afterClass(){
         driver.quit();
 
+
+
     }
 
 }
