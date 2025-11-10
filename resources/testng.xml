@@ -4,7 +4,7 @@
 
     <test name="Run on Chrome Browser">
         <classes>
-            <class name="com.nopcommerce.users.User_01_Regisgter_Login" />
+            <class name="Register_Company.TC_01" />
 
         </classes>
     </test>
