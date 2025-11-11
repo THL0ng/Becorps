@@ -13,6 +13,7 @@ public class commons {
         return rand.nextInt(9999);
     }
 
+    // STEP 1 //
     public String firstName = "Long" + getRandomNumber() + "gmail.com";
     public String secondName = "Test" + getRandomNumber();
     public String thirdName =  "Becorps" + getRandomNumber();
@@ -26,6 +27,16 @@ public class commons {
     public String zipcode =  "Code" + getRandomNumber();
     public Boolean country_region;
     public String rental;
+
+    // STEP 2 //
+    public int  capitalAmount = getRandomNumber();
+    public int  numberOfShares = getRandomNumber();
+    public String addShareHolderButton;
+    public String firstNameShareholder = "Long_Shareholder" + getRandomNumber();
+    public String lastNameShareholder = "becorps" + getRandomNumber();
+    public int identification = getRandomNumber();
+    public String email = "JohnDee" + getRandomNumber() + "@gmail.com";
+    public int numberPhone = 12345;
 
 
 

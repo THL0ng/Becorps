@@ -1,10 +1,14 @@
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-import java.io.File;
+
 
 public class LoginBecorps_Flow extends Browsers {
     commons data = new commons();
+
 
     @Test
     public void TC_01_Login_Success() {
@@ -27,45 +31,75 @@ public class LoginBecorps_Flow extends Browsers {
     @Test
     public void TC_03_CompanyDetail_Form() {
         CompanydetailActions companydetailActions = new CompanydetailActions(driver);
+
         companydetailActions.enterFirstNameForm(data.firstName);
-        sleepInSeconds(1);
+
         companydetailActions.enterSecondNameForm(data.secondName);
-        sleepInSeconds(1);
+
         companydetailActions.enterThirdNameForm(data.thirdName);
-        sleepInSeconds(1);
+
         companydetailActions.enterWebsiteForm(data.website);
-        sleepInSeconds(1);
+
         companydetailActions.enterCompanyActivityForm(data.companyActivity);
-        sleepInSeconds(1);
+
         companydetailActions.verifyYourOwnAddress(true);
-        sleepInSeconds(1);
+
         companydetailActions.enterAddressCompanyForm(data.addresscompany);
-        sleepInSeconds(1);
+
         companydetailActions.enterApartmentForm(data.apartment);
-        sleepInSeconds(1);
+
         companydetailActions.enterCityForm(data.city);
-        sleepInSeconds(1);
+
         companydetailActions.enterStateForm(data.state);
-        sleepInSeconds(1);
+
         companydetailActions.enterZipcodeForm(data.zipcode);
-        sleepInSeconds(1);
+
         companydetailActions.verifyCountryForm(false);
-        sleepInSeconds(1);
+
         companydetailActions.clickRentalForm(data.rental);
-        sleepInSeconds(1);
 
         companydetailActions.uploadFile("01.png");
 
         companydetailActions.submitButton();
 
+
     }
 
+    @Test
+    public void TC_04_Capital_Form() {
+        Capital_Actions capitalActions = new Capital_Actions(driver);
+
+        capitalActions.enterCapitalAmountForm(data.capitalAmount);
+        capitalActions.enternumberOfSharesForm(data.numberOfShares);
+
+        capitalActions.selectItemInDropdown("mat-select[formcontrolname='currency']", "div.mat-primary mat-option", "EUR");
+        capitalActions.selectItemInDropdown_2("mat-select[formcontrolname='shareTypeId']", By.xpath("//span[normalize-space()='ordinary']"));
+
+        capitalActions.clickShareholderButton(data.addShareHolderButton);
+
+        capitalActions.selectItemInDropdown_2("mat-select[formcontrolname='salutation']", By.xpath("//span[normalize-space()='Miss.']"));
+
+        capitalActions.enterfirstNameShareholder(data.firstNameShareholder);
+        capitalActions.enterlastNameShareholder(data.lastNameShareholder);
+
+        capitalActions.selectItemInDropdown_2("mat-select[formcontrolname='officerIdentificationTypeId']", By.xpath("//span[normalize-space()='ID']"));
+
+        capitalActions.enteridentificationForm(data.identification);
+
+        capitalActions.selectItemInDropdown_2("app-country-select-input[formcontrolname='nationalityId']", By.xpath("//mat-option//span[contains(text(),'Germany')]"));
+
+        capitalActions.setRandomExpiryDate(driver);
+
+        capitalActions.enterEmailForm(data.email);
+
+        //capitalActions.enterNumberPhone(data.numberPhone);
+
+        capitalActions.enterNumberPhone("+49123456789");
 
 
 
 
-
-
+    }
 
 
 }
