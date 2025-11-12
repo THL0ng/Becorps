@@ -6,8 +6,8 @@ public class Quote_Locator {
     public static By checkbox03 = By.xpath("(//mat-checkbox[@formcontrolname='isSelected']//span[contains(@class,'mat-checkbox-inner-container')])[3]");
     public static By checkbox04 = By.xpath("(//mat-checkbox[@formcontrolname='isSelected']//span[contains(@class,'mat-checkbox-inner-container')])[4]");
     public static By checkbox05 = By.xpath("(//mat-checkbox[@formcontrolname='isSelected']//span[contains(@class,'mat-checkbox-inner-container')])[5]");
-
-    public static By requestButton = By.xpath("//mat-icon[contains(normalize-space(),'request_quote')]");
+    //public static By requestButton = By.cssSelector("div.job-service-summary-wrapper > div.bg-white > button.mat-focus-indicator");
+    public static By requestButton = By.xpath("//button[.//span[contains(text(),'Request quote')]]");
 
 
 

@@ -16,7 +16,9 @@ public class CompanyDetail_Locator {
     public static By zipCodeForm = By.xpath("//mat-label[text()='Zipcode / Postal code']/ancestor::mat-form-field//input");
     public static By countryForm = By.xpath("//mat-label[text()='Country/Region']/ancestor::mat-form-field//input");
     public static By rentalForm = By.xpath("//ngx-dropzone-label[text()=' Upload rental agreement document']");
+
     public static By uploadFile = By.xpath("//input[@type='file']");
+
     public static By submitButton = By.xpath("//button[@type='submit']");
     public static By dropdownList = By.id ("mat-select-value-3");
     public static By country = By.xpath("//mat-label[text()='Country of Incorporation']");

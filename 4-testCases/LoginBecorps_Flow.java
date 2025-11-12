@@ -2,6 +2,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
@@ -33,7 +34,7 @@ public class LoginBecorps_Flow extends Browsers {
 
 
     @Test
-    public void TC_03_CompanyDetail_Step() {
+    public void TC_03_CompanyDetail_Step() throws InterruptedException {
         CompanydetailActions companydetailActions = new CompanydetailActions(driver);
 
         companydetailActions.enterFirstNameForm(data.firstName);
@@ -62,7 +63,7 @@ public class LoginBecorps_Flow extends Browsers {
 
         companydetailActions.clickRentalForm(data.rental);
 
-        companydetailActions.uploadFile("01.png");
+        companydetailActions.uploadFileWithRobotBackup ("01.png");
 
         companydetailActions.submitButton();
 
@@ -131,16 +132,22 @@ public class LoginBecorps_Flow extends Browsers {
     }
 
     @Test
-    public void TC_06_Quote_Step() {
+    public void TC_06_Quote_Step() throws InterruptedException {
         Quote_Actions quote = new Quote_Actions(driver);
 
         quote.selectCheckbox01();
+        sleepInSeconds(1);
         quote.selectCheckbox02();
+        sleepInSeconds(1);
         quote.selectCheckbox03();
+        sleepInSeconds(1);
         quote.selectCheckbox04();
+        sleepInSeconds(1);
         quote.selectCheckbox05();
-        sleepInSeconds(2);
-        quote.clickRequestButton();
-    }
 
+        quote.clickRequestButton();
+
+
+
+    }
 }
