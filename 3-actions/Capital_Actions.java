@@ -121,6 +121,35 @@ public class Capital_Actions {
         ((JavascriptExecutor) driver).executeScript("arguments[0].value = arguments[1];", phoneInput, fullNumber);
     }
 
+
+    public void enterAddressLineForm (String addressline){
+        driver.findElement(Capital_Locator.addressForm).sendKeys(addressline);
+    }
+
+
+    public void clickAddshareDistributionButton (String addShareDistribution){
+        driver.findElement(Capital_Locator.addShareDistributionButton).click();
+    }
+
+    public void inputvalue_numberOfshares_shareholder (String numberShare_shareholder ){
+        driver.findElement(Capital_Locator.numberForm_Shareholder).clear();
+        driver.findElement(Capital_Locator.numberForm_Shareholder).click();
+        driver.findElement(Capital_Locator.numberForm_Shareholder).sendKeys(numberShare_shareholder);
+    }
+
+    public void clickSaveButton (String saveButton){
+        driver.findElement(Capital_Locator.saveButtonShareholder).click();
+    }
+
+    public void clickAddNomineeDirector(String addNom_Button){
+        driver.findElement(Capital_Locator.addNomineeDirector).click();
+    }
+
+
+    public void clickSaveButtonNextStep (String saveButtonNextStep){
+        driver.findElement(Capital_Locator.nextbutton).click();
+    }
+
 }
 
 

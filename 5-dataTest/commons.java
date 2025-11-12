@@ -30,14 +30,19 @@ public class commons {
 
     // STEP 2 //
     public int  capitalAmount = getRandomNumber();
-    public int  numberOfShares = getRandomNumber();
+    public int  numberOfShares = 1;
     public String addShareHolderButton;
     public String firstNameShareholder = "Long_Shareholder" + getRandomNumber();
     public String lastNameShareholder = "becorps" + getRandomNumber();
     public int identification = getRandomNumber();
     public String email = "JohnDee" + getRandomNumber() + "@gmail.com";
     public int numberPhone = 12345;
-
+    public String addressline = "New york City";
+    public String addShareDistribution;
+    public String numberShare_shareholder = "1";
+    public String saveButton;
+    public String addNom_Button;
+    public String saveButtonNextStep;
 
 
 
