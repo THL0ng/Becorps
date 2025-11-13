@@ -20,7 +20,7 @@ public class commons {
     public String website =  "";
     public String companyActivity =  "Test Automation";
     public Boolean yourOwnAddress;
-    public String addresscompany = "Hồ Chí Minh" + "" + getRandomNumber();
+    public String addresscompany = "Hồ Chí Minh" + " " + getRandomNumber();
     public String apartment =  "Vinpark riverside";
     public String city =  "ABC" + getRandomNumber();
     public String state =  "XYZ" + getRandomNumber() ;
@@ -43,15 +43,5 @@ public class commons {
     public String saveButton;
     public String addNom_Button;
     public String saveButtonNextStep;
-
-
-
-
-
-
-
-
-
-
 
 }

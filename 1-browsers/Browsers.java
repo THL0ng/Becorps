@@ -1,7 +1,11 @@
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import java.time.Duration;
@@ -30,7 +34,18 @@ public class Browsers {
         }
     }
 
-        @AfterClass
+
+    public void waitForPageStable() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".cdk-overlay-backdrop")));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".mat-snack-bar-container.alert-error")));
+        ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
+    }
+
+
+
+
+    @AfterClass
         public void afterClass() {
             //driver.quit();
         }

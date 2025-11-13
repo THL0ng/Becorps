@@ -1,7 +1,4 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -37,7 +34,6 @@ public class Capital_Actions {
         driver.findElement(Capital_Locator.numberOfsharesForm).sendKeys(String.valueOf(numberOfShares));
     }
 
-
     public void selectItemInDropdown(String parentCss, String childItemCss, String expectedText) {
         driver.findElement(By.cssSelector(parentCss)).click();
         List<WebElement> allItems = explicitWait.until(ExpectedConditions.refreshed(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector(childItemCss))));
@@ -55,6 +51,9 @@ public class Capital_Actions {
         driver.findElement(By.cssSelector(parentCss)).click();
         explicitWait.until(ExpectedConditions.elementToBeClickable(itemLocator)).click();
     }
+
+
+
 
 
     public void clickShareholderButton(String addShareHolderButton) {
@@ -149,6 +148,73 @@ public class Capital_Actions {
     public void clickSaveButtonNextStep (String saveButtonNextStep){
         driver.findElement(Capital_Locator.nextbutton).click();
     }
+
+/// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+public void enterCapitalAmountForm2(int capitalAmount) {
+    WebElement input = driver.findElement(Capital_Locator.capitalAmountForm);
+    input.clear();
+    input.sendKeys(String.valueOf(capitalAmount));
+    input.sendKeys(Keys.TAB); // 👈 Trigger blur để form nhận giá trị
+}
+
+    public void enternumberOfSharesForm2(int numberOfShares) {
+        WebElement input = driver.findElement(Capital_Locator.numberOfsharesForm);
+        input.clear();
+        input.sendKeys(String.valueOf(numberOfShares));
+        input.sendKeys(Keys.TAB);
+    }
+
+    public void enterfirstNameShareholder2(String firstNameShareholder) {
+        WebElement input = driver.findElement(Capital_Locator.firstNameShareholder);
+        input.clear();
+        input.sendKeys(firstNameShareholder);
+        input.sendKeys(Keys.TAB);
+    }
+
+    public void enterlastNameShareholder2(String lastNameShareholder) {
+        WebElement input = driver.findElement(Capital_Locator.lastNameShareholder);
+        input.clear();
+        input.sendKeys(lastNameShareholder);
+        input.sendKeys(Keys.TAB);
+    }
+
+    public void enteridentificationForm2(int identification) {
+        WebElement input = driver.findElement(Capital_Locator.identificationForm);
+        input.clear();
+        input.sendKeys(String.valueOf(identification));
+        input.sendKeys(Keys.TAB);
+    }
+
+    public void enterEmailForm2(String email) {
+        WebElement input = driver.findElement(Capital_Locator.emailForm);
+        input.clear();
+        input.sendKeys(email);
+        input.sendKeys(Keys.TAB);
+    }
+
+    public void enterNumberPhone2(String fullNumber) {
+        WebElement phoneInput = wait.until(ExpectedConditions.elementToBeClickable(
+                By.cssSelector("input[type='tel']")));
+        phoneInput.clear();
+        phoneInput.sendKeys(fullNumber);
+        phoneInput.sendKeys(Keys.TAB); // 👈 Đảm bảo Angular update
+    }
+
+    public void enterAddressLineForm2(String addressline) {
+        WebElement input = driver.findElement(Capital_Locator.addressForm);
+        input.clear();
+        input.sendKeys(addressline);
+        input.sendKeys(Keys.TAB);
+    }
+
+    public void inputvalue_numberOfshares_shareholder2(String numberShare_shareholder) {
+        WebElement input = driver.findElement(Capital_Locator.numberForm_Shareholder);
+        input.clear();
+        input.sendKeys(numberShare_shareholder);
+        input.sendKeys(Keys.TAB);
+    }
+
+
 
 }
 

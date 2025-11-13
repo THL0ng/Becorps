@@ -1,26 +1,10 @@
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.*;
 import org.testng.Assert;
-
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.time.Duration;
-import java.util.*;
 
 public class CompanydetailActions {
     WebDriver driver;
@@ -177,14 +161,6 @@ public class CompanydetailActions {
     }
 
 
-
-
-
-
-
-
-
-
     public void submitButton() {
         driver.findElement(CompanyDetail_Locator.submitButton).click();
     }
@@ -192,6 +168,79 @@ public class CompanydetailActions {
     public void clickToDropDown(){
         driver.findElement(CompanyDetail_Locator.dropdownList).click();
 
+    }
+
+
+    /// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public void enterFirstNameForm2(String firstName) {
+        WebElement input = driver.findElement(CompanyDetail_Locator.firstNameForm);
+        input.clear();
+        input.sendKeys(firstName);
+        input.sendKeys(Keys.TAB);
+    }
+
+    public void enterSecondNameForm2(String secondName) {
+        WebElement input = driver.findElement(CompanyDetail_Locator.secondNameForm);
+        input.clear();
+        input.sendKeys(secondName);
+        input.sendKeys(Keys.TAB);
+    }
+
+    public void enterThirdNameForm2(String thirdName) {
+        WebElement input = driver.findElement(CompanyDetail_Locator.thirdNameForm);
+        input.clear();
+        input.sendKeys(thirdName);
+        input.sendKeys(Keys.TAB);
+    }
+
+    public void enterWebsiteForm2(String website) {
+        WebElement input = driver.findElement(CompanyDetail_Locator.websiteForm);
+        input.clear();
+        input.sendKeys(website);
+        input.sendKeys(Keys.TAB);
+    }
+
+    public void enterCompanyActivityForm2(String companyActivity) {
+        WebElement input = driver.findElement(CompanyDetail_Locator.companyActivityForm);
+        input.clear();
+        input.sendKeys(companyActivity);
+        input.sendKeys(Keys.TAB);
+    }
+
+    public void enterAddressCompanyForm2(String addresscompany) {
+        WebElement input = driver.findElement(CompanyDetail_Locator.addressCompanyForm);
+        input.clear();
+        input.sendKeys(addresscompany);
+        input.sendKeys(Keys.TAB);
+    }
+
+    public void enterApartmentForm2(String apartment) {
+        WebElement input = driver.findElement(CompanyDetail_Locator.apartmentForm);
+        input.clear();
+        input.sendKeys(apartment);
+        input.sendKeys(Keys.TAB);
+    }
+
+    public void enterCityForm2(String city) {
+        WebElement input = driver.findElement(CompanyDetail_Locator.cityForm);
+        input.clear();
+        input.sendKeys(city);
+        input.sendKeys(Keys.TAB);
+    }
+
+    public void enterStateForm2(String state) {
+        WebElement input = driver.findElement(CompanyDetail_Locator.stateForm);
+        input.clear();
+        input.sendKeys(state);
+        input.sendKeys(Keys.TAB);
+    }
+
+    public void enterZipcodeForm2(String zipcode) {
+        WebElement input = driver.findElement(CompanyDetail_Locator.zipCodeForm);
+        input.clear();
+        input.sendKeys(zipcode);
+        input.sendKeys(Keys.TAB);
     }
 
 }
