@@ -168,7 +168,7 @@ public class LoginBecorps_Flow extends Browsers {
         Quote_Actions quote = new Quote_Actions(driver);
 
 
-        quote.selectCheckbox01();
+        /*quote.selectCheckbox01();
         sleepInSeconds(3);
         quote.selectCheckbox02();
         sleepInSeconds(3);
@@ -176,7 +176,7 @@ public class LoginBecorps_Flow extends Browsers {
         sleepInSeconds(3);
         quote.selectCheckbox04();
         sleepInSeconds(3);
-        quote.selectCheckbox05();
+        quote.selectCheckbox05();*/
 
         quote.clickRequestButton();
     }
@@ -195,10 +195,15 @@ public class LoginBecorps_Flow extends Browsers {
 
         ae.clickEditButton();
         sleepInSeconds(3);
+
         ae.Assign_Expert("input[placeholder='Enter email of person']", By.xpath("//p[normalize-space()='Expert Long_01_Test']"));
         sleepInSeconds(3);
 
         ae.clicksubmitButton();
+        sleepInSeconds(1);
+
+        ae.clickconfirmtButton();
+        sleepInSeconds(1);
     }
 
 
@@ -206,7 +211,7 @@ public class LoginBecorps_Flow extends Browsers {
 
 
     @AfterClass
-    public void afterClass() {
+    public void endFlow() {
         //driver.quit();
     }
 
