@@ -6,11 +6,14 @@ public class KYC_commons {
         return rand.nextInt(9999);
     }
 
-    public String firstName = "Long" + getRandomNumber() + "gmail.com";
-    public String lastName = "Test" + getRandomNumber();
+    public String firstName = "Long_Auto" + "gmail.com";
+    public String lastName = "Test_KYC_Flow";
     public int indenNumber =  getRandomNumber();
     public String percentage = "25";
     public String percentage_UBO = "75";
+
+
+
 
 
 

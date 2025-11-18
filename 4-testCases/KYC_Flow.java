@@ -87,26 +87,28 @@ public class KYC_Flow extends Browsers {
 
         ubo.clickKYC_UBO();
         sleepInSeconds(2);
-        
-
-        /*ubo.verifyStatus();
+        ubo.verifyStatus_Incomplete();
         sleepInSeconds(2);
+
+
 
         ubo.Corporate_Shareholder();
         sleepInSeconds(2);
-
-        ubo.upload_Incorporation();
+        ubo.clickUploadButton("CERTIFICATE_OF_INCORPORATION");
         companydetailActions.uploadFileWithRobotBackup ("01.png");
-        sleepInSeconds(3);
+        sleepInSeconds(5);
 
-
-        ubo.upload_Association();
+        ubo.Corporate_Shareholder();
+        sleepInSeconds(2);
+        ubo.clickUploadButton("ARTICLES_OF_ASSOCIATION");
         companydetailActions.uploadFileWithRobotBackup ("01.png");
-        sleepInSeconds(3);
+        sleepInSeconds(5);
 
-        ubo.upload_Incumbency();
+        ubo.Corporate_Shareholder();
+        sleepInSeconds(2);
+        ubo.clickUploadButton("CERTIFICATE_OF_INCUMBENCY");
         companydetailActions.uploadFileWithRobotBackup ("01.png");
-        sleepInSeconds(3);*/
+        sleepInSeconds(5);
 
         ubo.clickCapital_unallocated();
         sleepInSeconds(2);
@@ -183,16 +185,103 @@ public class KYC_Flow extends Browsers {
         sleepInSeconds(2);
 
         ubo.clickConfirm_Button();
-        sleepInSeconds(2);
+        sleepInSeconds(5);
+
+    }
 
 
+    @Test
+    public void TC_05_KYC_UploadFiles_2() {
+        KYC_Companies_Actions ubo = new KYC_Companies_Actions(driver);
+        CompanydetailActions companydetailActions = new CompanydetailActions(driver);
+
+        ubo.clickIndividual_LongLayer1();
+        sleepInSeconds(5);
+        ubo.clickUploadButton_ForLongLayer("PASSPORT");
+        companydetailActions.uploadFileWithRobotBackup ("01.png");
+        sleepInSeconds(5);
+
+
+        ubo.clickIndividual_LongLayer1();
+        sleepInSeconds(5);
+        ubo.clickUploadProofOfAddressForLongLayer1();
+        companydetailActions.uploadFileWithRobotBackup ("01.png");
+        sleepInSeconds(5);
+
+
+        ubo.clickIndividual_DrakeLayer1();
+        sleepInSeconds(5);
+        ubo.clickUploadPassport_ForDrakeLayer1();
+        companydetailActions.uploadFileWithRobotBackup ("01.png");
+        sleepInSeconds(5);
+
+        ubo.clickIndividual_DrakeLayer1();
+        sleepInSeconds(5);
+        ubo.clickUploadProofOfAddress_ForDrakeLayer1();
+        companydetailActions.uploadFileWithRobotBackup ("01.png");
+        sleepInSeconds(5);
+
+        ubo.clickDirector_Long();
+        sleepInSeconds(5);
+        ubo.clickUploadPassport_ForDirector();
+        companydetailActions.uploadFileWithRobotBackup ("01.png");
+        sleepInSeconds(5);
+
+        ubo.clickDirector_Long();
+        sleepInSeconds(5);
+        ubo.clickUploadProofOfAddress_ForDirector();
+        companydetailActions.uploadFileWithRobotBackup ("01.png");
+        sleepInSeconds(5);
+
+        ubo.clickLongAuto_KYCFlow();
+        sleepInSeconds(5);
+        ubo.clickUploadPassport_ForLongKYC_Flow();
+        companydetailActions.uploadFileWithRobotBackup ("01.png");
+        sleepInSeconds(5);
+
+
+        ubo.clickLongAuto_KYCFlow();
+        sleepInSeconds(5);
+        ubo.clickUploadProofOfAddress_ForLongKYC_Flow();
+        companydetailActions.uploadFileWithRobotBackup ("01.png");
+        sleepInSeconds(5);
+
+
+        ubo.verifyStatus_Verifying();
+        sleepInSeconds(1);
+
+        ubo.clickConfirmKYC_Button();
+        sleepInSeconds(1);
+
+        ubo.clickToSure_ConfirmKYC_Button();
+        sleepInSeconds(1);
+
+        ubo.verifyStatus_Confirmed();
+        sleepInSeconds(1);
 
 
 
     }
 
 
+    @Test
+    public void TC_06_Create_Company_Profile(){
+        KYC_CreateCompanyProfile_Actions ccp = new KYC_CreateCompanyProfile_Actions(driver);
 
+        ccp.click_createCompanyProfile_Button();
+        sleepInSeconds(1);
+
+
+        ccp.input_registrationNo();
+        sleepInSeconds(1);
+
+        ccp.setRandomExpiryDate_ofKYC(driver);
+        sleepInSeconds(1);
+
+        ccp.clicktoConfirm_CreateCompanyProfile();
+        sleepInSeconds(1);
+
+    }
 
 
 }
