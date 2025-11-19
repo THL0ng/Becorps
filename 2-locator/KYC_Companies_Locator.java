@@ -20,7 +20,7 @@ public class KYC_Companies_Locator {
     public static By LongIndividual_Layer1 = By.xpath("//span[normalize-space()='Long Individual_ Layer1']");
     public static By DrakeIndividual_Layer1 = By.xpath("//span[normalize-space()='Drake Individual_ Layer1']");
     public static By Nominee_Long = By.xpath("//span[normalize-space()='Director:']");
-    public static By LongKYC_Flow = By.xpath("//span[normalize-space()=' Long_Autogmail.com Test_KYC_Flow_ Layer2");
+    public static By LongKYC_Flow = By.xpath("//span[contains(@class,'font-bold') and contains(., 'Long_Autog')]");
 
 
     public static By statusVerifying = By.xpath("//span[normalize-space()='Verifying']");

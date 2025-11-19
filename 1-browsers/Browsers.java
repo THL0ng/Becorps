@@ -1,8 +1,10 @@
 
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import java.time.Duration;
@@ -30,6 +32,26 @@ public class Browsers {
             throw new RuntimeException(e);
         }
     }
+
+
+    public void waitInSeconds(int seconds) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
+
+        // Chờ DOM load xong
+        wait.until(webDriver ->
+                ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete")
+        );
+
+        // Chờ Angular (nếu có)
+        try {
+            wait.until(webDriver ->
+                    ((JavascriptExecutor) webDriver).executeScript("return window.getAllAngularTestabilities ? "
+                                    + "window.getAllAngularTestabilities().every(x=>x.isStable()) : true;")
+                            .equals(true)
+            );
+        } catch (Exception ignored) {}
+    }
+
 
     @AfterClass
         public void afterClass() {

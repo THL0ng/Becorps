@@ -163,7 +163,7 @@ public class KYC_Companies_Actions {
 
 
     public void clickUploadPassport_ForLongKYC_Flow() {
-        String xpath = "//mat-expansion-panel[.//*[contains(normalize-space(),'Nominee _ Long')]]"
+        String xpath = "//mat-expansion-panel[.//*[contains(normalize-space(),'Long_Autog')]]"
                 + "//p[normalize-space()='PASSPORT']"
                 + "/ancestor::section[contains(@class,'officers-container')]"
                 + "//div[contains(@class,'w-[15%]')]//button";
@@ -174,7 +174,7 @@ public class KYC_Companies_Actions {
     }
 
     public void clickUploadProofOfAddress_ForLongKYC_Flow() {
-        String xpath = "//mat-expansion-panel[.//*[contains(normalize-space(),'Nominee _ Long')]]"
+        String xpath = "//mat-expansion-panel[.//*[contains(normalize-space(),'Long_Autog')]]"
                 + "//p[normalize-space()='PROOF_OF_ADDRESS']"
                 + "/ancestor::section[contains(@class,'officers-container')]"
                 + "//div[contains(@class,'w-[15%]')]//button";
@@ -220,6 +220,27 @@ public class KYC_Companies_Actions {
         String actualText = driver.findElement(KYC_Companies_Locator.done_uploadfiles_KYC).getText();
         Assert.assertEquals(actualText.trim(),"Confirmed");
     }
+
+
+    public void waitAndRefresh(int seconds) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
+
+        // Chờ spinner biến mất (nếu có)
+        try {
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(
+                    By.cssSelector("mat-spinner, .spinner, .loading, .mat-progress-spinner")));
+        } catch (Exception ignored) {}
+
+        // Chờ trạng thái Uploaded/Completed thành công
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath("//*[contains(text(),'Uploaded') or contains(text(),'Completed') or contains(text(),'Success')]")));
+        } catch (Exception ignored) {}
+
+        // Cuối cùng → refresh như Thread.sleep
+        driver.navigate().refresh();
+    }
+
 
 
 
