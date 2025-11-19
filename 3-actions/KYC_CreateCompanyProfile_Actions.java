@@ -1,9 +1,14 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class KYC_CreateCompanyProfile_Actions {
@@ -52,6 +57,43 @@ public class KYC_CreateCompanyProfile_Actions {
 
     public void clicktoConfirm_CreateCompanyProfile(){
         driver.findElement(KYC_CreateCompanyProfile_Locator.Confirm_createCompanyProfile).click();
+    }
+
+
+    public void Click_TobackCompanies(){
+        driver.findElement(KYC_CreateCompanyProfile_Locator.back_to_companies).click();
+    }
+
+
+    public Map<String, String> KYC_Status(WebDriver driver, String companyName) {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        WebElement row = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(
+                        By.xpath(
+                                "//tr[contains(@class,'mat-row')]" +
+                                        "[.//td[contains(@class,'mat-column-name')]//span" +
+                                        "[contains(normalize-space(),'" + companyName + "')]]"
+                        )
+                )
+        );
+
+        String companyStatus = row
+                .findElement(By.cssSelector("td.mat-column-status app-status"))
+                .getText()
+                .trim();
+
+        String kycStatus = row
+                .findElement(By.cssSelector("td.mat-column-kycStatus app-status"))
+                .getText()
+                .trim();
+
+        Map<String, String> result = new HashMap<>();
+        result.put("companyStatus", companyStatus);
+        result.put("kycStatus", kycStatus);
+
+        return result;
     }
 
 }

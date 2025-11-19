@@ -1,11 +1,13 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.Map;
 
 public class KYC_Flow extends Browsers {
     commons data = new commons();
     KYC_commons dataKYC = new KYC_commons();
+
 
 
 
@@ -259,8 +261,6 @@ public class KYC_Flow extends Browsers {
         ubo.verifyStatus_Confirmed();
         sleepInSeconds(1);
 
-
-
     }
 
 
@@ -281,7 +281,17 @@ public class KYC_Flow extends Browsers {
         ccp.clicktoConfirm_CreateCompanyProfile();
         sleepInSeconds(1);
 
+        ccp.Click_TobackCompanies();
+        sleepInSeconds(1);
+
+        Map<String, String> status = ccp.KYC_Status(driver, "Long");
+        Assert.assertEquals(status.get("companyStatus"), "Active");
+        Assert.assertEquals(status.get("kycStatus"), "Confirmed");
+
     }
+
+
+
 
 
 }
