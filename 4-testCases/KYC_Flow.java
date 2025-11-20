@@ -23,19 +23,21 @@ public class KYC_Flow extends Browsers {
         waitInSeconds(2);
 
         job.clickJobRequestButton();
-        waitInSeconds(2);        
+        waitInSeconds(2);
+
+        job.clickNextPage(3);
 
         job.clickProfile();
-        waitInSeconds(2);        
+        waitInSeconds(2);
 
         job.clickEditButton();
-        waitInSeconds(2);        
+        waitInSeconds(2);
 
         job.Assign_Expert("input[placeholder='Enter email of person']", By.xpath("//p[normalize-space()='Expert Long_01_Test']"));
-        waitInSeconds(2);        
+        waitInSeconds(2);
 
         job.clicksubmitButton();
-        waitInSeconds(2);        
+        waitInSeconds(2);
 
         job.clickconfirmtButton();
         waitInSeconds(2);
@@ -194,8 +196,9 @@ public class KYC_Flow extends Browsers {
         ubo.waitAndRefresh(5);
 
     }
+
     @Test
-    public void TC_06_KYC_UploadFiles_3 () {
+    public void TC_06_KYC_UploadFiles_3() {
         KYC_Companies_Actions ubo = new KYC_Companies_Actions(driver);
         CompanydetailActions companydetailActions = new CompanydetailActions(driver);
 
@@ -243,35 +246,34 @@ public class KYC_Flow extends Browsers {
         ubo.verifyStatus_Confirmed();
         waitInSeconds(2);
 
-        }
+    }
 
 
+    @Test
+    public void TC_07_Create_Company_Profile() {
+        KYC_CreateCompanyProfile_Actions ccp = new KYC_CreateCompanyProfile_Actions(driver);
 
-        @Test
-        public void TC_07_Create_Company_Profile () {
-            KYC_CreateCompanyProfile_Actions ccp = new KYC_CreateCompanyProfile_Actions(driver);
-
-            ccp.click_createCompanyProfile_Button();
-            waitInSeconds(2);
+        ccp.click_createCompanyProfile_Button();
+        waitInSeconds(2);
 
 
-            ccp.input_registrationNo();
-            waitInSeconds(2);
+        ccp.input_registrationNo();
+        waitInSeconds(2);
 
-            ccp.setRandomExpiryDate_ofKYC(driver);
-            waitInSeconds(2);
+        ccp.setRandomExpiryDate_ofKYC(driver);
+        waitInSeconds(2);
 
-            ccp.clicktoConfirm_CreateCompanyProfile();
-            waitInSeconds(2);
+        ccp.clicktoConfirm_CreateCompanyProfile();
+        waitInSeconds(2);
 
-            ccp.Click_TobackCompanies();
-            waitInSeconds(2);
+        ccp.Click_TobackCompanies();
+        waitInSeconds(2);
 
-            Map<String, String> status = ccp.KYC_Status(driver, "Long");
-            Assert.assertEquals(status.get("companyStatus"), "Active");
-            Assert.assertEquals(status.get("kycStatus"), "Confirmed");
-
-        }
+        Map<String, String> status = ccp.KYC_Status(driver, "Long");
+        Assert.assertEquals(status.get("companyStatus"), "Active");
+        Assert.assertEquals(status.get("kycStatus"), "Confirmed");
 
     }
+
+}
 
