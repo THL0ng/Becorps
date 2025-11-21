@@ -30,7 +30,7 @@ public class demo extends Browsers {
 
        driver.findElement(By.xpath("//a[contains(normalize-space(.), 'Companies')]")).click();
        waitInSeconds(2);
-        driver.findElement(By.xpath("//span[contains(normalize-space(),'demo-test')]")).click();
+        driver.findElement(By.xpath("//span[contains(normalize-space(),'Long539gmail.com')]")).click();
 
         ubo.clickKYC_UBO();
         waitInSeconds(2);

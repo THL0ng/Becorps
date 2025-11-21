@@ -10,7 +10,7 @@ public class LoginActions {
 
 
     public void enterUsername(String userName) {
-        driver.findElement(LoginLocators.getUsernameField()).sendKeys(userName);
+        driver.findElement(LoginLocators.usernameField).sendKeys(userName);
     }
 
     public void enterPassword(String password) {

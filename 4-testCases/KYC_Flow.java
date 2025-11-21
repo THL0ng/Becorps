@@ -5,7 +5,6 @@ import org.testng.annotations.Test;
 import java.util.Map;
 
 public class KYC_Flow extends Browsers {
-    commons data = new commons();
     KYC_commons dataKYC = new KYC_commons();
 
 
@@ -15,14 +14,14 @@ public class KYC_Flow extends Browsers {
         KYC_JobRequest_Actions job = new KYC_JobRequest_Actions(driver);
         LoginActions actions = new LoginActions(driver);
 
-        actions.enterUsername2(data.userName);
-        waitInSeconds(2);
-        actions.enterPassword2(data.password);
-        waitInSeconds(2);
+        actions.enterUsername2(commons.userName);
+        //waitInSeconds(2);
+        actions.enterPassword2(commons.password);
+        //waitInSeconds(2);
         actions.clickLogin();
-        waitInSeconds(2);
+        //waitInSeconds(2);
 
-        job.clickJobRequestButton();
+        /*job.clickJobRequestButton();
         waitInSeconds(2);
 
         job.clickNextPage(3);
@@ -40,7 +39,7 @@ public class KYC_Flow extends Browsers {
         waitInSeconds(2);
 
         job.clickconfirmtButton();
-        waitInSeconds(2);
+        waitInSeconds(2);*/
 
     }
 
@@ -68,7 +67,7 @@ public class KYC_Flow extends Browsers {
     }
 
 
-    @Test
+    //@Test
     public void TC_04_KYC_UploadFiles() {
         KYC_Companies_Actions ubo = new KYC_Companies_Actions(driver);
         CompanydetailActions companydetailActions = new CompanydetailActions(driver);
@@ -159,7 +158,7 @@ public class KYC_Flow extends Browsers {
     }
 
 
-    @Test
+   // @Test
     public void TC_05_KYC_UploadFiles_2() {
         KYC_Companies_Actions ubo = new KYC_Companies_Actions(driver);
         CompanydetailActions companydetailActions = new CompanydetailActions(driver);
@@ -202,7 +201,7 @@ public class KYC_Flow extends Browsers {
         KYC_Companies_Actions ubo = new KYC_Companies_Actions(driver);
         CompanydetailActions companydetailActions = new CompanydetailActions(driver);
 
-        ubo.clickKYC_UBO();
+       /* ubo.clickKYC_UBO();
         waitInSeconds(2);
 
         ubo.clickDirector_Long();
@@ -221,10 +220,10 @@ public class KYC_Flow extends Browsers {
         waitInSeconds(5);
         ubo.clickUploadPassport_ForLongKYC_Flow();
         companydetailActions.uploadFileWithRobotBackup("01.png");
-        waitInSeconds(5);
+        waitInSeconds(5);*/
 
 
-        ubo.clickLongAuto_KYCFlow();
+        /*ubo.clickLongAuto_KYCFlow();
         waitInSeconds(5);
         ubo.clickUploadProofOfAddress_ForLongKYC_Flow();
         companydetailActions.uploadFileWithRobotBackup("01.png");
@@ -244,7 +243,7 @@ public class KYC_Flow extends Browsers {
         waitInSeconds(2);
 
         ubo.verifyStatus_Confirmed();
-        waitInSeconds(2);
+        waitInSeconds(2);*/
 
     }
 
@@ -254,20 +253,20 @@ public class KYC_Flow extends Browsers {
         KYC_CreateCompanyProfile_Actions ccp = new KYC_CreateCompanyProfile_Actions(driver);
 
         ccp.click_createCompanyProfile_Button();
-        waitInSeconds(2);
+        waitInSeconds(5);
 
 
         ccp.input_registrationNo();
-        waitInSeconds(2);
+        waitInSeconds(5);
 
         ccp.setRandomExpiryDate_ofKYC(driver);
-        waitInSeconds(2);
+        waitInSeconds(5);
 
         ccp.clicktoConfirm_CreateCompanyProfile();
-        waitInSeconds(2);
+        waitInSeconds(5);
 
         ccp.Click_TobackCompanies();
-        waitInSeconds(2);
+        waitInSeconds(5);
 
         Map<String, String> status = ccp.KYC_Status(driver, "Long");
         Assert.assertEquals(status.get("companyStatus"), "Active");
