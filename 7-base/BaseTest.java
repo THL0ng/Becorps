@@ -6,6 +6,8 @@ import org.testng.annotations.BeforeClass;
 
 public class BaseTest {
     protected WebDriver driver;
+    protected String Url = "https://www.staging.becorps.net/login";
+
     @BeforeClass
     public void openBrowsers() {
         ChromeOptions options = new ChromeOptions();
@@ -15,6 +17,7 @@ public class BaseTest {
 
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
+        driver.get(Url);
     }
 
 
