@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import java.util.Map;
 
-public class demo extends Browsers {
+public class demo extends BaseTest {
     commons data = new commons();
     KYC_commons dataKYC = new KYC_commons();
 

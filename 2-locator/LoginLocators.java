@@ -10,23 +10,14 @@ public class LoginLocators {
         return usernameField;
     }
 
-    public static void setUsernameField(By usernameField) {
-        LoginLocators.usernameField = usernameField;
-    }
-
     public static By getPasswordField() {
         return passwordField;
     }
 
-    public static void setPasswordField(By passwordField) {
-        LoginLocators.passwordField = passwordField;
-    }
 
     public static By getLoginButton() {
         return loginButton;
     }
 
-    public static void setLoginButton(By loginButton) {
-        LoginLocators.loginButton = loginButton;
-    }
+
 }
